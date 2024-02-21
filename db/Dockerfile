@@ -3,6 +3,8 @@ LABEL maintainer="vladislav st091242@student.spbu.ru"
 
 RUN apk add --no-cache sqlite
 WORKDIR /db
-RUN sqlite3 mydatabase.db "CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY, value TEXT NOT NULL);"
+COPY init.sql /db/
+RUN sqlite3 mydatabase.db < init.sql
+
 VOLUME ["/db"]
 CMD ["sqlite3", "/db/mydatabase.db"]

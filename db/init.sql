@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY, value TEXT NOT NULL);
+INSERT INTO test (value) VALUES ('Hello world');
